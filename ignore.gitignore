@@ -1,0 +1,12 @@
+# Ignorar compilados
+/build/
+
+# Ignorar configuraciones privadas de NetBeans
+nbproject/private/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos binarios
+*.class
