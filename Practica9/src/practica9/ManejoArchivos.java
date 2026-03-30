@@ -76,9 +76,9 @@ public class ManejoArchivos implements Serializable {
             String linea;
             double suma = 0, multiplicacion = 1;
             int cantidad = 0;
+            bw.write("\nElementos: ");
             while ((linea = br.readLine()) != null) {
                 String[] valores = linea.split(",");
-                bw.write("Elementos: ");
                 bw.newLine();
 
                 for (String valor : valores) {
@@ -89,7 +89,6 @@ public class ManejoArchivos implements Serializable {
                         multiplicacion *= numero;
                         cantidad++;
                     } catch (NumberFormatException e) {
-                        bw.write("Valor no numérico ignorado: " + valor);
                         bw.newLine();
                     }
                 }

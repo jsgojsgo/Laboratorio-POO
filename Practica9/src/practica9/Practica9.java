@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Practica9 {
     public static void main(String[] args) {
+        System.out.println("Directorio de trabajo actual: " + System.getProperty("user.dir"));
         Scanner sc = new Scanner(System.in);
         int n;
         ManejoArchivos archivo = new ManejoArchivos(); // objeto para archivos de texto
