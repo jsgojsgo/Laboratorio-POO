@@ -32,6 +32,7 @@ public class Practica9 {
                 case 3:
                     System.out.print("\nIngrese el nombre del archivo a modificar: ");
                     nombreArchivo = sc.nextLine();
+                    archivo.backupArchivo(nombreArchivo);
                     System.out.print("\nIngrese el texto a agregar: ");
                     String texto = sc.nextLine();
                     archivo.escribirArchivo(nombreArchivo, texto);
