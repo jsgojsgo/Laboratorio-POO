@@ -3,10 +3,13 @@ package practica10;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Practica10 {
     public static volatile boolean ejecutando = true;
+
     public static void main(String[] args) {
+
         QueueClientes cola = new QueueClientes();
         Cajero c1 = new Cajero(1, cola);
         Cajero c2 = new Cajero(2, cola);
@@ -14,22 +17,14 @@ public class Practica10 {
         c1.setDaemon(true);
         c2.setDaemon(true);
         c3.setDaemon(true);
-
         c1.start();
         c2.start();
         c3.start();
         
         ExecutorService executor = Executors.newFixedThreadPool(2);
-        Runnable prod1 = new Cliente(cola);
-        Runnable prod2 = new Cliente(cola);
-        Thread t1 = new Thread(prod1);
-        Thread t2 = new Thread(prod2);
-
-        t1.setDaemon(true);
-        t2.setDaemon(true);
-        t1.start();
-        t2.start();
-
+        executor.execute(new Cliente(cola));
+        executor.execute(new Cliente(cola));
+        
         Thread stopThread = new Thread(() -> {
             Scanner sc = new Scanner(System.in);
             System.out.println("\nPresiona ENTER para detener la simulación...\n");
@@ -38,17 +33,26 @@ public class Practica10 {
             synchronized (cola) {
                 cola.notifyAll();
             }
+            executor.shutdownNow();//detenerpool
+            try {
+                if (!executor.awaitTermination(2, TimeUnit.SECONDS)) {
+                    System.out.println("Algunos productores no terminaron correctamente.");
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             System.out.println("Simulación detenida.");
         });
 
         stopThread.setDaemon(true);
         stopThread.start();
-        try {
-            while (ejecutando) {
-                Thread.sleep(200);
+        while (ejecutando) {
+            try {
+                Thread.sleep(200); //pausa solo para no saturar CPU
+            } catch (InterruptedException e) {
+                break;
             }
-        } catch (InterruptedException e) {
-            //terminaprograma
         }
 
         System.out.println("Programa finalizado completamente.");
