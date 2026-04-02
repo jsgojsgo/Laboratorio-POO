@@ -5,14 +5,10 @@ import java.time.LocalDate;
 
 public class Cliente implements Serializable {
 
-    private String nombre;
-    private String matricula;
+    private String nombre, matricula, diaRenovacion;
     private Membresia membresia;
-    private boolean renovacionAutomatica;
-    private String diaRenovacion;
-    private LocalDate fechaRegistro;
-    private LocalDate ultimoAcceso;
-    private boolean frecuente;
+    private boolean renovacionAutomatica, frecuente;
+    private LocalDate fechaRegistro, ultimoAcceso;
 
     public Cliente(String nombre, String matricula) {
         this.nombre = nombre;
@@ -20,8 +16,6 @@ public class Cliente implements Serializable {
         this.fechaRegistro = LocalDate.now();
         this.frecuente = false;
     }
-
-    // Getters y Setters
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
