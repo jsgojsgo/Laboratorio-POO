@@ -12,26 +12,22 @@ public class Membresia implements Serializable {
     public Membresia(TipoMembresia tipo) {
         this.tipo = tipo;
         this.fechaInicio = LocalDate.now();
-        this.fechaFin = calcularFechaFin(tipo);
+        this.fechaFin = calcularFin(tipo);
         this.activa = true;
     }
 
-    private LocalDate calcularFechaFin(TipoMembresia tipo) {
+    private LocalDate calcularFin(TipoMembresia tipo) {
         switch (tipo) {
-            case STANDARD: return LocalDate.now().plusMonths(12);
             case PRO: return LocalDate.now().plusMonths(1);
-            case ULTRA: return LocalDate.now().plusMonths(12);
-            default: return LocalDate.now();
+            default: return LocalDate.now().plusMonths(12);
         }
     }
 
     public boolean estaVencida() {
         return LocalDate.now().isAfter(fechaFin);
     }
-    
-    public TipoMembresia getTipo() { return tipo; }
-    public void setTipo(TipoMembresia tipo) { this.tipo = tipo; }
 
+    public TipoMembresia getTipo() { return tipo; }
     public LocalDate getFechaInicio() { return fechaInicio; }
     public LocalDate getFechaFin() { return fechaFin; }
 
