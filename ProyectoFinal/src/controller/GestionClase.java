@@ -3,6 +3,7 @@ package controller;
 import model.Clase;
 import model.Cliente;
 import service.ClaseService;
+import java.util.ArrayList;
 
 public class GestionClase {
     private ClaseService service;
@@ -15,4 +16,8 @@ public class GestionClase {
     public boolean cancelar(Cliente cliente, Clase clase) {
         return service.cancelarAsistencia(cliente, clase);
     }
+    
+    public ArrayList<Clase> obtenerClasesPredefinidas() {
+    return service.obtenerClasesPredefinidas(); 
+}
 }

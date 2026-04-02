@@ -7,7 +7,7 @@ public class Clase implements Serializable {
     private String nombre, instructor, dia, horaInicio, horaFin;
     private int cupos;
 
-    public Clase(String nombre, String instructor, String dia, String horaInicio, String horaFin, int cupos) {
+    public Clase(String instructor, String nombre, String dia, String horaInicio, String horaFin, int cupos) {
         this.nombre = nombre;
         this.instructor = instructor;
         this.dia = dia;

@@ -24,21 +24,23 @@ public class VentanaSocios {
         txt.setPromptText("Ingresa tu matrícula");
 
         Button acceder = new Button("Acceder");
+        Button regresar = new Button("Regresar");
         BotonHover.aplicar(acceder);
-
+        BotonHover.aplicar(regresar);
         GestionAutentificador auth = new GestionAutentificador();
-
+        
         acceder.setOnAction(e -> {
-
             Cliente c = auth.autenticarCliente(txt.getText());
-
             if (c != null) {
                 new VentanaSocioValidado(stage, c).mostrar();
             } else {
                 DialogoPersonalizado.mostrar("Error", "Matrícula incorrecta");
             }
         });
-        VBox root = new VBox(10, txt, acceder);
+        regresar.setOnAction(e -> new VentanaPrincipal(stage).mostrar());
+        
+        VBox root = new VBox(10, txt, acceder, regresar);
+        
         root.setAlignment(Pos.CENTER);
         Scene scene = new Scene(root, 600, 400);
         scene.getStylesheets().add(

@@ -26,7 +26,16 @@ public class Membresia implements Serializable {
     public boolean estaVencida() {
         return LocalDate.now().isAfter(fechaFin);
     }
-
+    
+    public String getDescripcion() {
+        switch (tipo) {
+            case STANDARD: return "Acceso básico";
+            case PRO: return "Acceso intermedio";
+            case ULTRA: return "Acceso total";
+            default: return "";
+        }
+    }
+    
     public TipoMembresia getTipo() { return tipo; }
     public LocalDate getFechaInicio() { return fechaInicio; }
     public LocalDate getFechaFin() { return fechaFin; }

@@ -35,18 +35,40 @@ public class VentanaMembresias {
         );
         stage.setScene(scene);
     }
+    
+    VBox crearPlan(String nombre, TipoMembresia tipo, GestionMembresia gm) {
 
-    private VBox crearPlan(String nombre, TipoMembresia tipo, GestionMembresia gm) {
-        Button btn = new Button("Seleccionar");
-        BotonHover.aplicar(btn);
+        Label titulo = new Label(nombre);
+        Label info = new Label(new Membresia(tipo).getDescripcion());
+        
+        Button seleccionar = new Button("Seleccionar");
+        Button regresar = new Button("Regresar");
+        Button btn;
+        BotonHover.aplicar(seleccionar);
+        BotonHover.aplicar(regresar);
 
-        btn.setOnAction(e -> {
+        seleccionar.setOnAction(e -> {
             gm.cambiar(cliente, tipo);
             DialogoPersonalizado.mostrar("Éxito", "Membresía cambiada a " + nombre);
         });
-        VBox box = new VBox(10, new javafx.scene.control.Label(nombre), btn);
+        regresar.setOnAction(e -> new VentanaSocioValidado(stage, cliente).mostrar());
+        
+        if (cliente.getMembresia().getTipo() == tipo) {
+            btn = new Button("Membresía actual");
+            btn.setDisable(true);
+        } else {
+            btn = new Button("Cambiar a este plan");
+
+            btn.setOnAction(e -> {
+                gm.cambiar(cliente, tipo);
+                DialogoPersonalizado.mostrar("OK", "Plan cambiado");
+                mostrar();
+            });
+        }
+        
+        VBox box = new VBox(10, new javafx.scene.control.Label(nombre), titulo, info, seleccionar, regresar, btn);
         box.setAlignment(Pos.CENTER);
         box.setStyle("-fx-border-color: white; -fx-padding: 20;");
         return box;
+        
     }
-}

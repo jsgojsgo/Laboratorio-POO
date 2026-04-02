@@ -21,7 +21,10 @@ public class VentanaStaffValidado {
         TableColumn<Cliente, String> colNombre = new TableColumn<>("Nombre");
         colNombre.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getNombre()));
         tabla.getColumns().add(colNombre);
+        Button regresar = new Button("Regresar");
         GestionCliente gc = new GestionCliente();
+        
+        
         FilteredList<Cliente> lista = new FilteredList<>(FXCollections.observableArrayList(gc.obtenerTodos()), p -> true);
         TextField filtro = new TextField();
         new FiltroBusqueda<Cliente>().aplicarFiltro(
@@ -30,7 +33,9 @@ public class VentanaStaffValidado {
                 lista,
                 c -> c.getNombre().toLowerCase().contains(filtro.getText().toLowerCase())
         );
-        VBox root = new VBox(10, filtro, tabla);
+        regresar.setOnAction(e -> new VentanaPrincipal(stage).mostrar());
+        
+        VBox root = new VBox(10, filtro, tabla, regresar);
         root.setAlignment(Pos.CENTER);
         Scene scene = new Scene(root, 600, 400);
         scene.getStylesheets().add(

@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
 
 public class VentanaClientes {
 
@@ -16,7 +17,10 @@ public class VentanaClientes {
     
     public void mostrar() {
         Label lbl = new Label("Selecciona un plan para registrarte");
-        VBox root = new VBox(20, lbl);
+        Button regresar = new Button("Regresar");
+        
+        VBox root = new VBox(20, lbl, regresar);
+        
         root.setAlignment(Pos.CENTER);
         Scene scene = new Scene(root, 600, 400);
         scene.getStylesheets().add(

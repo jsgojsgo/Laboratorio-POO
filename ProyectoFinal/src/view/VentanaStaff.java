@@ -19,7 +19,9 @@ public class VentanaStaff {
         TextField txt = new TextField();
         txt.setPromptText("ID");
         Button acceder = new Button("Acceder");
+        Button regresar = new Button("Regresar");
         GestionAutentificador auth = new GestionAutentificador();
+        
         acceder.setOnAction(e -> {
             if (auth.autenticarStaff(txt.getText())) {
                 new VentanaStaffValidado(stage).mostrar();
@@ -27,7 +29,9 @@ public class VentanaStaff {
                 DialogoPersonalizado.mostrar("Error", "ID incorrecto");
             }
         });
-        VBox root = new VBox(10, txt, acceder);
+        regresar.setOnAction(e -> new VentanaPrincipal(stage).mostrar());
+        
+        VBox root = new VBox(10, txt, acceder, regresar);
         root.setAlignment(Pos.CENTER);
         Scene scene = new Scene(root, 600, 400);
         scene.getStylesheets().add(

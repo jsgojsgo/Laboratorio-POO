@@ -2,9 +2,16 @@ package service;
 
 import model.Clase;
 import model.Cliente;
+import repository.ClaseRepository;
+import java.util.List;
 
 public class ClaseService {
+    private ClaseRepository repo = new ClaseRepository();
 
+    public List<Clase> obtenerClases() {
+        return repo.cargarClases();
+    }
+    
     public boolean inscribirCliente(Cliente cliente, Clase clase) {
         if (!clase.hayCupo()) return false;
         cliente.inscribirClase(clase);

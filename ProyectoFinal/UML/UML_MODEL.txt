@@ -25,9 +25,10 @@ class Membresia {
     -fechaInicio: LocalDate
     -fechaFin: LocalDate
     -activa: boolean
-    +Membresia(tipo)
-    -calcularFechaFin(tipo): LocalDate
+    +Membresia(tipo: TipoMembresia)
+    -calcularFechaFin(tipo: TipoMembresia): LocalDate
     +estaVencida(): boolean
+    +getDescripcion(): String
     +get/set atributos privados
 }
 
