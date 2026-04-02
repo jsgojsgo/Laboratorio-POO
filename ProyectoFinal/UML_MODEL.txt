@@ -1,0 +1,78 @@
+@startuml
+
+class Cliente {
+    -nombre: String
+    -matricula: String
+    -membresia: Membresia
+    -renovacionAutomatica: boolean
+    -diaRenovacion: String
+    -fechaRegistro: LocalDate
+    -ultimoAcceso: LocalDate
+    -frecuente: boolean
+    +Cliente(nombre,matricula)
+    +get/set atributos privados
+}
+
+class Staff {
+    -nombre: String
+    -id: String
+    +Staff(nombre,id)
+    +get/set atributos privados
+}
+
+class Membresia {
+    -tipo: TipoMembresia
+    -fechaInicio: LocalDate
+    -fechaFin: LocalDate
+    -activa: boolean
+    +Membresia(tipo)
+    -calcularFechaFin(tipo): LocalDate
+    +estaVencida(): boolean
+    +get/set atributos privados
+}
+
+enum TipoMembresia {
+    STANDARD
+    PRO
+    ULTRA
+    -inscripcion: double
+    -mensualidad: double
+    +TipoMembresia(inscripcion,mensualidad)
+    +get/set atributos privados
+}
+
+class Pago {
+    -titular: String
+    -numeroTarjeta: String
+    -fechaExpiracion: String
+    -cvv: String
+    -fechaRegistro: LocalDate
+    +Pago(titular,numeroTarjeta,fechaExpiracion,cvv)
+    +get/set atributos privados
+}
+
+class Clase {
+    -nombre: String
+    -instructor: String
+    -dia: String
+    -horaInicio: String
+    -horaFin: String
+    -cupos: int
+    +Clase(nombre,instructor,dia,horaInicio,horaFin,cupos)
+    +get/set atributos privados
+}
+
+class Acceso {
+    -matricula: String
+    -fechaHoraEntrada: LocalDateTime
+    +Acceso(matricula)
+    +get/set atributos privados
+}
+
+Cliente "1" --> "1" Membresia
+Membresia --> TipoMembresia
+Cliente "1" --> "*" Pago
+Cliente "1" --> "*" Acceso
+Cliente "*" --> "*" Clase
+
+@enduml
