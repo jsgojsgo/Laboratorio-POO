@@ -17,7 +17,4 @@ public class Pago implements Serializable {
     }
 
     public String getTitular() { return titular; }
-    public String getNumeroTarjeta() { return numeroTarjeta; }
-    public String getFechaExpiracion() { return fechaExpiracion; }
-    public String getCvv() { return cvv; }
 }
