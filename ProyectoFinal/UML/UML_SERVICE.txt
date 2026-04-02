@@ -43,5 +43,11 @@ class ReporteService {
 ClienteService --> ClienteRepository
 AccesoService --> HistorialRepository
 ReporteService --> Cliente
+MembresiaService --> Cliente
+MembresiaService --> TipoMembresia
+PagoService --> Cliente
+PagoService --> Pago
+ClaseService --> Cliente
+ClaseService --> Clase
 
 @enduml
