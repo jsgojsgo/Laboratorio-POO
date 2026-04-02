@@ -1,0 +1,65 @@
+@startuml
+
+class GestionAutentificador {
+    -clienteService: ClienteService
+    +GestionAutentificador()
+    +autenticarCliente(matricula: String): Cliente
+    +autenticarStaff(id: String): boolean
+}
+
+class GestionCliente {
+    -service: ClienteService
+    +GestionCliente()
+    +obtenerTodos(): Lista<Cliente>
+    +buscar(matricula: String): Cliente
+}
+
+class GestionMembresia {
+    -service: MembresiaService
+    +GestionMembresia()
+    +estaVencida(cliente: Cliente): boolean
+    +cambiar(cliente: Cliente, tipo: TipoMembresia): void
+}
+
+class GestionPago {
+    -service: PagoService
+    +registrarPago(cliente: Cliente, pago: Pago): void
+    +calcularTotal(cliente: Cliente, monto: double): double
+}
+
+class GestionAcceso {
+    -service: AccesoService
+    +GestionAcceso()
+    +permitirEntrada(cliente: Cliente): boolean
+}
+
+class GestionClase {
+    -service: ClaseService
+    +GestionClase()
+    +inscribir(cliente: Cliente, clase: Clase): boolean
+    +cancelar(cliente: Cliente, clase: Clase): boolean
+}
+
+class GestionRenovacion {
+    -service: RenovacionService
+    +GestionRenovacion()
+    +activar(cliente: Cliente, dia: String): void
+    +desactivar(cliente: Cliente): void
+}
+
+class GestionReporte {
+    -service: ReporteService
+    +GestionReporte()
+    +generarClientes(clientes: Lista<Cliente>): void
+}
+
+GestionAutentificador --> ClienteService
+GestionCliente --> ClienteService
+GestionMembresia --> MembresiaService
+GestionPago --> PagoService
+GestionAcceso --> AccesoService
+GestionClase --> ClaseService
+GestionRenovacion --> RenovacionService
+GestionReporte --> ReporteService
+
+@enduml

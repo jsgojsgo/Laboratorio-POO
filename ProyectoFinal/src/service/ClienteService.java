@@ -6,7 +6,6 @@ import repository.ClienteRepository;
 import java.util.List;
 
 public class ClienteService {
-
     private ClienteRepository repo;
     public ClienteService() {
         repo = new ClienteRepository();

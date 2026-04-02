@@ -58,6 +58,9 @@ class Clase {
     -horaInicio: String
     -horaFin: String
     -cupos: int
+    +hayCupo(): boolean
+    +reducirCupo(): void
+    +aumentarCupo(): void
     +Clase(nombre,instructor,dia,horaInicio,horaFin,cupos)
     +get/set atributos privados
 }
