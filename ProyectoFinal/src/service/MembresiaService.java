@@ -1,23 +1,27 @@
 package service;
 
-import model.*;
+import model.Cliente;
+import model.Membresia;
+import model.TipoMembresia;
 
 public class MembresiaService {
 
-    public boolean estaVencida(Membresia membresia) {
-        return membresia.estaVencida();
+    private final ClienteService clienteService;
+
+    public MembresiaService() {
+        clienteService = new ClienteService();
+    }
+
+    public boolean estaVencida(Membresia m) {
+        return m != null && m.estaVencida();
     }
 
     public void cambiarMembresia(Cliente cliente, TipoMembresia nueva) {
-        cliente.setMembresia(new Membresia(nueva));
-    }
-
-    public String obtenerDescripcion(TipoMembresia tipo) {
-        switch (tipo) {
-            case STANDARD: return "Acceso básico";
-            case PRO: return "Acceso intermedio";
-            case ULTRA: return "Acceso total";
-            default: return "";
+        if (cliente == null || nueva == null) {
+            return;
         }
+
+        cliente.setMembresia(new Membresia(nueva));
+        clienteService.actualizarCliente(cliente, cliente);
     }
 }
