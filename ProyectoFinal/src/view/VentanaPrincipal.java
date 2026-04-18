@@ -9,14 +9,13 @@ import util.BotonHover;
 
 public class VentanaPrincipal {
 
-    private Stage stage;
+    private final Stage stage;
 
     public VentanaPrincipal(Stage stage) {
         this.stage = stage;
     }
 
     public void mostrar() {
-
         Button socio = new Button("¡Sí, ya soy socio!");
         Button cliente = new Button("¡Aún no, pero quiero serlo!");
         Button staff = new Button("¡Soy Staff!");
@@ -36,10 +35,7 @@ public class VentanaPrincipal {
         root.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(root, 600, 400);
-        scene.getStylesheets().add(
-            getClass().getResource("/resources/Formato.css").toExternalForm()
-        );
-        stage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("/resources/Formato.css").toExternalForm());
 
         stage.setScene(scene);
         stage.setTitle("GymPOS");
