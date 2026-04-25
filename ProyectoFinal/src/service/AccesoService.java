@@ -5,25 +5,46 @@ import model.Cliente;
 import repository.HistorialRepository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class AccesoService {
 
-    private HistorialRepository repo;
+    private final HistorialRepository historialRepo;
+    private final ClienteService clienteService;
 
     public AccesoService() {
-        repo = new HistorialRepository();
+        historialRepo = new HistorialRepository();
+        clienteService = new ClienteService();
     }
 
     public boolean permitirAcceso(Cliente cliente) {
-        if (cliente.getMembresia() == null) return false;
-        if (cliente.getMembresia().estaVencida()) return false;
-        registrarAcceso(cliente);
+        if (cliente == null) {
+            return false;
+        }
+        if (cliente.getMembresia() == null) {
+            return false;
+        }
+        if (cliente.getMembresia().estaVencida()) {
+            return false;
+        }
+
+        registrarEntrada(cliente);
         return true;
     }
 
-    private void registrarAcceso(Cliente cliente) {
+    public void registrarEntrada(Cliente cliente) {
         Acceso acceso = new Acceso(cliente.getMatricula());
-        repo.guardarAcceso(acceso);
+        historialRepo.registrarAcceso(acceso);
+
         cliente.setUltimoAcceso(LocalDate.now());
+        clienteService.actualizarCliente(cliente, cliente);
+    }
+
+    public List<Acceso> obtenerHistorial() {
+        return historialRepo.cargarHistorial();
+    }
+
+    public void generarReporteEntradas() {
+        historialRepo.generarReporteEntradas("ReporteEntradas.txt");
     }
 }
