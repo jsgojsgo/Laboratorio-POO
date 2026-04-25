@@ -1,23 +1,35 @@
 package controller;
 
 import model.Clase;
-import model.Cliente;
 import service.ClaseService;
-import java.util.ArrayList;
+
+import java.util.List;
 
 public class GestionClase {
-    private ClaseService service;
+
+    private final ClaseService service;
+
     public GestionClase() {
         service = new ClaseService();
     }
-    public boolean inscribir(Cliente cliente, Clase clase) {
-        return service.inscribirCliente(cliente, clase);
+
+    public List<Clase> obtenerClases() {
+        return service.obtenerClases();
     }
-    public boolean cancelar(Cliente cliente, Clase clase) {
-        return service.cancelarAsistencia(cliente, clase);
+
+    public List<Clase> obtenerClasesBase() {
+        return service.obtenerClasesBase();
     }
-    
-    public ArrayList<Clase> obtenerClasesPredefinidas() {
-    return service.obtenerClasesPredefinidas(); 
-}
+
+    public boolean crearClase(Clase clase) {
+        return service.agregarClase(clase);
+    }
+
+    public boolean modificarClase(Clase original, Clase nueva) {
+        return service.modificarClase(original, nueva);
+    }
+
+    public boolean eliminarClase(Clase clase) {
+        return service.eliminarClase(clase);
+    }
 }
