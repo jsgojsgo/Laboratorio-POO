@@ -1,0 +1,31 @@
+nombre_elemento,tipo,peso,stock
+Cinta de correr,máquina,,5
+Bicicleta estática,máquina,,4
+Elíptica,máquina,,3
+Banco plano,máquina,,6
+Máquina de polea,máquina,,2
+Press de pecho,máquina,,2
+Remo bajo,máquina,,3
+Mancuerna 2 kg,mancuerna,2,10
+Mancuerna 5 kg,mancuerna,5,12
+Mancuerna 10 kg,mancuerna,10,8
+Barra olímpica,mancuerna,20,5
+Disco 5 kg,mancuerna,5,20
+Disco 10 kg,mancuerna,10,15
+Disco 15 kg,mancuerna,15,10
+Colchoneta,utilería,,25
+Bandas elásticas,utilería,,30
+Pelota de pilates,utilería,,15
+Rueda abdominal,utilería,,10
+Soga para saltar,utilería,,20
+Kettlebell 8 kg,mancuerna,8,7
+Kettlebell 12 kg,mancuerna,12,5
+Trapecio,máquina,,3
+Escalera funcional,utilería,,6
+Toallas,limpieza,,50
+Desinfectante,limpieza,,20
+Cepillos,limpieza,,15
+Mostrador,recepción,,2
+Computadora,recepción,,1
+Teléfono,recepción,,1
+Caja registradora,recepción,,1
