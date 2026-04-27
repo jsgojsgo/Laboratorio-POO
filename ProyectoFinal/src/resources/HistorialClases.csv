@@ -1,21 +1,24 @@
-nombre_coach,nombre_clase,fecha,hora_inicio,hora_fin,cupos
-Juan Pérez,Yoga Matutino,2026-04-05,07:00,08:00,20
-Sebastián Córdova,Spinning Intensivo,2026-04-05,08:30,09:30,15
-Carlos Ramírez,HIIT Funcional,2026-04-05,18:00,19:00,18
-Luis Mendoza,Pilates,2026-04-06,07:00,08:00,22
-Jorge Castillo,Cross Training,2026-04-06,18:00,19:00,20
-Daniela Vargas,Zumba,2026-04-06,19:30,20:30,25
-Héctor Navarro,Box Fitness,2026-04-07,07:30,08:30,12
-Miguel Herrera,Entrenamiento de Fuerza,2026-04-07,18:00,19:00,15
-Raúl Vega,Cardio Dance,2026-04-07,19:30,20:30,18
-Tomás Salinas,Stretching,2026-04-08,07:00,08:00,20
-Juan Pérez,TRX,2026-04-08,18:00,19:00,16
-Sebastián Córdova,Bootcamp,2026-04-08,19:30,20:30,14
-Carlos Ramírez,Yoga Relajante,2026-04-09,18:00,19:00,20
-Luis Mendoza,Spinning Avanzado,2026-04-09,19:30,20:30,15
-Jorge Castillo,HIIT Avanzado,2026-04-10,07:00,08:00,18
-Daniela Vargas,Pilates Intermedio,2026-04-10,08:30,09:30,22
-Héctor Navarro,CrossFit,2026-04-10,18:00,19:00,20
-Miguel Herrera,Zumba Fitness,2026-04-10,19:30,20:30,25
-Raúl Vega,Funcional Total,2026-04-11,08:00,09:00,12
-Tomás Salinas,Movilidad y Estiramiento,2026-04-11,09:30,10:30,20
+nombre,rol,fecha,hora_inicio,hora_fin
+Juan Pérez,Yoga Matutino,2026-04-05,07:00,08:00
+Sebastián Córdova,Spinning Intensivo,2026-04-05,08:30,09:30
+Carlos Ramírez,HIIT Funcional,2026-04-05,18:00,19:00
+Luis Mendoza,Pilates,2026-04-06,07:00,08:00
+Jorge Castillo,Cross Training,2026-04-06,18:00,19:00
+Daniela Vargas,Zumba,2026-04-06,19:30,20:30
+Héctor Navarro,Box Fitness,2026-04-07,07:30,08:30
+Miguel Herrera,Entrenamiento de Fuerza,2026-04-07,18:00,19:00
+Raúl Vega,Cardio Dance,2026-04-07,19:30,20:30
+Tomás Salinas,Stretching,2026-04-08,07:00,08:00
+Juan Pérez,TRX,2026-04-08,18:00,19:00
+Sebastián Córdova,Bootcamp,2026-04-08,19:30,20:30
+Carlos Ramírez,Yoga Relajante,2026-04-09,18:00,19:00
+Luis Mendoza,Spinning Avanzado,2026-04-09,19:30,20:30
+Jorge Castillo,HIIT Avanzado,2026-04-10,07:00,08:00
+Daniela Vargas,Pilates Intermedio,2026-04-10,08:30,09:30
+Héctor Navarro,CrossFit,2026-04-10,18:00,19:00
+Miguel Herrera,Zumba Fitness,2026-04-10,19:30,20:30
+Raúl Vega,Funcional Total,2026-04-11,08:00,09:00
+Tomás Salinas,Movilidad y Estiramiento,2026-04-11,09:30,10:30
+Daniela Vargas,Pilates Intermedio,2026-04-10,08:30,09:30
+Héctor Navarro,Box Fitness,2026-04-17,07:30,08:30
+Sebastián Córdova,Spinning Intensivo,2026-05-01,08:30,09:30

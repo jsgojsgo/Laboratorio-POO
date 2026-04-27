@@ -1,15 +1,15 @@
 nombre,matricula,tipo_membresia,renovacion_automatica,dia_renovacion,fecha_registro,ultimo_acceso,frecuente
-Ana Lopez,1001,STANDARD,true,15,2023-01-10,2026-03-31,true
-Bruno Garcia,1002,PRO,false,,2023-02-05,2026-03-30,false
+Ana Lopez,1001,ULTRA,true,15,2023-01-10,2026-04-18,true
+Bruno Garcia,1002,STANDARD,false,,2023-02-05,2026-04-02,true
 Carla Martinez,1003,ULTRA,true,10,2022-12-20,2026-03-28,true
 David Fernandez,1004,STANDARD,false,,2023-01-15,2026-03-29,false
 Elena Rodriguez,1005,PRO,true,20,2023-03-01,2026-03-27,true
 Felipe Torres,1006,ULTRA,false,,2023-02-18,2026-03-30,false
-Gabriela Sanchez,1007,STANDARD,true,5,2023-01-25,2026-03-31,true
+Gabriela Sanchez,1007,ULTRA,true,5,2023-01-25,2026-03-31,true
 Hector Ruiz,1008,PRO,false,,2023-03-02,2026-03-26,false
 Isabel Morales,1009,ULTRA,true,12,2022-12-15,2026-03-29,true
 Javier Castillo,1010,STANDARD,false,,2023-01-05,2026-03-30,false
-Karina Perez,1011,PRO,true,18,2023-03-10,2026-03-28,true
+Karina Perez,1011,PRO,true,18,2023-03-10,2026-04-02,true
 Luis Herrera,1012,ULTRA,false,,2023-02-01,2026-03-31,false
 Maria Jimenez,1013,STANDARD,true,8,2023-01-20,2026-03-27,true
 Nicolas Vega,1014,PRO,false,,2023-03-05,2026-03-29,false
@@ -28,8 +28,8 @@ Zulema Aguilar,1026,PRO,false,,2023-03-06,2026-03-27,false
 Antonio Rivas,1027,ULTRA,true,9,2022-12-18,2026-03-29,true
 Beatriz Leon,1028,STANDARD,false,,2023-01-10,2026-03-28,false
 Claudio Espinoza,1029,PRO,true,16,2023-03-08,2026-03-31,true
-Daniela Carrasco,1030,ULTRA,false,,2023-02-14,2026-03-30,false
-Esteban Vargas,1031,STANDARD,true,21,2023-01-02,2026-03-27,true
+Daniela Carrasco,1030,ULTRA,false,,2023-02-14,2026-04-02,false
+Esteban Vargas,1031,STANDARD,true,21,2023-01-02,2026-04-02,true
 Florencia Rios,1032,PRO,false,,2023-03-09,2026-03-29,false
 Gustavo Pena,1033,ULTRA,true,19,2022-12-22,2026-03-31,true
 Hilda Cortina,1034,STANDARD,false,,2023-01-15,2026-03-30,false
@@ -49,3 +49,6 @@ Victor Maldonado,1047,PRO,true,15,2023-03-01,2026-03-31,true
 Wendy Salinas,1048,ULTRA,false,,2023-02-10,2026-03-30,false
 Xavier Cortes,1049,STANDARD,true,8,2023-01-05,2026-03-27,true
 Yolanda Rojas,1050,PRO,false,,2023-03-07,2026-03-29,false
+Lionel Messi,13030,STANDARD,false,,2026-04-02,2026-04-02,false
+Cristiano Ronaldo,102020,ULTRA,true,10,2026-04-02,2026-04-02,true
+Neymar JR,102030,PRO,true,10,2026-04-18,2026-04-18,true

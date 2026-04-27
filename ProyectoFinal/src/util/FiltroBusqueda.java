@@ -4,6 +4,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+
 import java.util.function.Predicate;
 
 public class FiltroBusqueda<T> {
@@ -14,15 +15,14 @@ public class FiltroBusqueda<T> {
             Predicate<T> condicionBusqueda
     ) {
         txtBusqueda.textProperty().addListener((obs, oldVal, newVal) -> {
-
             listaFiltrada.setPredicate(item -> {
-                if (newVal == null || newVal.isEmpty()) {
+                if (newVal == null || newVal.trim().isEmpty()) {
                     return true;
                 }
                 return condicionBusqueda.test(item);
             });
         });
-        SortedList<T> sorted = new SortedList<>(listaFiltrada);
+        SortedList<T> sorted = new SortedList<T>(listaFiltrada);
         sorted.comparatorProperty().bind(tabla.comparatorProperty());
         tabla.setItems(sorted);
     }
