@@ -1,0 +1,70 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+actor "Cliente (No Socio)" as Cliente
+actor "Socio" as Socio
+actor "Staff" as Staff
+
+rectangle "Sistema Gimnasio - Casos de Uso" {
+    
+    ' Casos de Uso
+    (Ver Pantalla de Inicio) as UC_Inicio
+    (Ver Planes y Membresías) as UC_Planes
+    (Aviso: Contactar Staff) as UC_Aviso
+    
+    (Login Socio) as UC_LoginSocio
+    (Acceder al gimnasio) as UC_Acceso
+    (Ver Clases Disponibles) as UC_VerClases
+    (Gestionar Membresía) as UC_GestMembresia
+    (Realizar Pago) as UC_Pago
+    (Validar Tarjeta) as UC_Tarjeta
+    
+    (Login Staff) as UC_LoginStaff
+    (Gestionar Clientes\n<size:10>CRUD + Filtros</size>) as UC_CRUD_Cli
+    (Ver Accesos en Tiempo Real) as UC_Monitor
+    (Gestionar Clases\n<size:10>Crear/Agendar</size>) as UC_Clases
+    (Gestionar Inventario) as UC_Inv
+    (Generar Reporte Historial) as UC_Reporte
+
+    ' Relaciones Cliente
+    Cliente --> UC_Inicio
+    Cliente --> UC_Planes
+    UC_Planes <.. UC_Aviso : <<extend>>
+
+    ' Relaciones Socio
+    Socio --> UC_Inicio
+    Socio --> UC_Acceso
+    Socio --> UC_VerClases
+    Socio --> UC_GestMembresia
+    Socio --> UC_Pago
+
+    ' El acceso a estas funciones INCLUYE obligatoriamente el Login
+    UC_Acceso ..> UC_LoginSocio : <<include>>
+    UC_VerClases ..> UC_LoginSocio : <<include>>
+    UC_GestMembresia ..> UC_LoginSocio : <<include>>
+    UC_Pago ..> UC_LoginSocio : <<include>>
+    UC_Pago ..> UC_Tarjeta : <<include>>
+    
+    ' El aviso extiende la visualización de clases
+    UC_VerClases <.. UC_Aviso : <<extend>>
+
+    ' Relaciones Staff
+    Staff --> UC_Inicio
+    Staff --> UC_CRUD_Cli
+    Staff --> UC_Monitor
+    Staff --> UC_Clases
+    Staff --> UC_Inv
+    Staff --> UC_Reporte
+    Staff --> UC_Pago
+    Staff --> UC_GestMembresia
+
+    ' Todas las funciones del Staff INCLUYEN el Login de Staff
+    UC_CRUD_Cli ..> UC_LoginStaff : <<include>>
+    UC_Monitor ..> UC_LoginStaff : <<include>>
+    UC_Clases ..> UC_LoginStaff : <<include>>
+    UC_Inv ..> UC_LoginStaff : <<include>>
+    UC_Reporte ..> UC_LoginStaff : <<include>>
+}
+@enduml

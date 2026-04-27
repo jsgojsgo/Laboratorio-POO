@@ -1,0 +1,68 @@
+@startuml
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Arquitectura de Paquetes - Proyecto Final
+
+package "view" {
+    note as n_view
+        **Interfaz de Usuario**
+        Gestión de ventanas (Socios, 
+        Inventario, Pagos) y componentes
+        gráficos.
+    end note
+}
+
+package "controller" {
+    note as n_ctrl
+        **Control**
+        Controla el flujo entre la vista
+        y los servicios. Maneja la lógica
+        de navegación y eventos.
+    end note
+}
+
+package "service" {
+    note as n_svc
+        **Lógica de Negocio**
+        Contiene las reglas del sistema
+        (cálculo de membresías, validación
+        de accesos, reportes, etc).
+    end note
+}
+
+package "model" {
+    note as n_model
+        **Entidades**
+        Objetos del dominio:
+        Staff, Cliente, Inventario, etc.
+    end note
+}
+
+package "repository" {
+    note as n_repo
+        **Persistencia**
+        Gestión de datos en archivos
+        CSV y métodos de búsqueda/guardado.
+    end note
+}
+
+package "util" {
+    note as n_util
+        **Herramientas**
+        Serialización, validaciones y
+        estilos visuales comunes.
+    end note
+}
+
+' Flujo de dependencias
+view ..> controller : solicita acción
+controller ..> service : ejecuta lógica
+service ..> repository : solicita datos
+repository ..> model : mapea a
+service ..> model : utiliza
+
+' Dependencias transversales
+view ..> util
+repository ..> util
+@enduml
