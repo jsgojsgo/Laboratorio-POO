@@ -24,6 +24,7 @@ import model.TipoMembresia;
 import util.BotonHover;
 import util.DialogoPersonalizado;
 import util.FiltroBusqueda;
+import service.SimuladorEntradasService;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -223,6 +224,7 @@ public class VentanaStaffValidado {
         iniciarRefrescoAutomatico();
         refrescarClientes();
         refrescarAccesos();
+        SimuladorEntradasService.getInstancia().iniciar();
     }
 
     private void construirTablaClientes() {
